@@ -9,8 +9,8 @@ import lombok.Setter;
 
 @Getter @Setter
 public class DoctorDTO {
-
-    @NotBlank(message = "Full name is required")
+	
+	@NotBlank(message = "Full name is required")
     private String fullName;
 
     @NotBlank(message = "Qualification is required")

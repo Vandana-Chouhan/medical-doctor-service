@@ -6,9 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.hospital.doctor.entity.DoctorAvailability;
 
-public interface DoctorAvailabilityRepository
-extends JpaRepository<DoctorAvailability, Long> {
+public interface DoctorAvailabilityRepository extends JpaRepository<DoctorAvailability, Long> {
 
-List<DoctorAvailability> findByDoctorId(Long doctorId);
+	List<DoctorAvailability> findByDoctorId(Long doctorId);
 }
-

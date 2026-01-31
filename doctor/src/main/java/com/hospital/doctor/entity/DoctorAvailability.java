@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,6 +26,11 @@ public class DoctorAvailability {
     private String dayOfWeek;
     private LocalTime startTime;
     private LocalTime endTime;
-    @Column(name = "created_at", insertable = false, updatable = false)
+    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
+    // Set createdAt automatically on INSERT
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+        }
 }
