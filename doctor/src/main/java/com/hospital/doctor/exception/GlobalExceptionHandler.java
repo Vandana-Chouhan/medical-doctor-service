@@ -49,6 +49,10 @@ public class GlobalExceptionHandler {
     // Generic Exception (Fallback)
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiError> handleGlobalException(Exception ex) {
+    	
+    	ex.printStackTrace();
+        System.out.println("🔥 GLOBAL EXCEPTION: " + ex.getClass().getName());
+        System.out.println("🔥 MESSAGE: " + ex.getMessage());
         ApiError error = new ApiError(
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
                 "Something went wrong. Please try again."
